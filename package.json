@@ -1,0 +1,19 @@
+{
+  "name": "json-matcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "tdd": "nodemon -w . -x ava"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "bloomrun": "^2.1.0",
+    "nodemon": "^1.10.0",
+    "pat-mat": "^0.1.1",
+    "patrun": "^0.5.0"
+  }
+}
