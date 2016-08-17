@@ -1,8 +1,6 @@
-/* jshint esversion: 6 */
-var test = require('ava');
-var lib = require('./index');
+const test = require('ava');
 
-const testMatch = (match) => {
+module.exports = (match) => {
 
 	test('simple patterns', t => {
 		const fn1 = match([
@@ -83,10 +81,3 @@ const testMatch = (match) => {
 	test.skip('handles objects in arrays', t => {
 	});
 };
-
-testMatch((pattern) => {
-	return (value) => lib.eager(pattern, value);
-});
-
-
-//testMatch(lib.decisionTree(pattern));
