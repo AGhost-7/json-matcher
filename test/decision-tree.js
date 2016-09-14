@@ -85,3 +85,31 @@ test('read::return', t => {
 test('read::undefined', t => {
 	t.is(decisionTree.read(tree, { e: 9000 }), undefined);
 });
+
+test('compiler::simple', t => {
+	var patterns = [
+		{ a: 1, b: 2 }, 1,
+		{ a: 1 }, 2
+	];
+	var shouldBe = {
+		action: COMPARE,
+		field: 'a',
+		value: 1,
+		ifTrue: {
+			action: COMPARE,
+			field: 'b',
+			value: 2,
+			ifTrue: {
+				action: RETURN,
+				value: 2
+			},
+			ifFalse: {
+				action: UNDEFINED
+			}
+		},
+		isFalse: {
+			action: UNDEFINED
+		}
+	};
+	t.is(decisionTree.generate(patterns), shouldBe);
+});
